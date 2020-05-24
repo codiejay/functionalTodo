@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAC;EACd,OAAO,EAAE,KAAK;EACd,OAAO,EAAE,GAAG;EACZ,cAAc,EAAE,SAAS;CAC1B",
+    "sources": [
+        "IndividualTask.scss"
+    ],
+    "names": [],
+    "file": "IndividualTask.css"
+}

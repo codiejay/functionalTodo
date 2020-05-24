@@ -1,0 +1,29 @@
+#taskList { 
+  background-color: rgba(128, 128, 128, 0.288);
+  width:  45%;
+  margin: 3em auto;
+  text-align: left;
+  padding: 2% 10%;
+  #individualTask div:nth-child(even) { 
+      background-color: rgba(0, 0, 0, 0.329);
+      color: white;
+    }
+    #individualTask div {
+      background-color: whitesmoke;
+      margin: 1em 0;
+      font-size: 1.3em;
+      animation: slideIn 1s 1 ;
+    }
+}
+
+@keyframes slideIn { 
+  from { 
+    opacity: 0;
+    transform: translateY(70px);
+  }
+
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

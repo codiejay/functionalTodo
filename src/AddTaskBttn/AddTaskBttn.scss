@@ -1,0 +1,15 @@
+#addTaskBttn { 
+  font-size: 1.3em;
+  margin-top: 2em;
+  background-color: white;
+  border: 1px solid black;
+  padding: 0.3em 0.9em;
+  text-transform: uppercase;
+  border-radius: 200px;
+
+    &:active { 
+      background-color: black;
+      transition: all 0.4s;
+      color: white
+    }
+}
