@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import Firebase from './firebase';
+import firebase from 'firebase';
 
 //Components
 import Container from '../src/Container/Container';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Container />

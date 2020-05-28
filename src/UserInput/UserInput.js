@@ -3,9 +3,18 @@ import './UserInput.css';
 
 const UserInput = (props) => { 
   return (
-    <div id='userInput'>
-      <input placeholder='type your task here' onChange={props.userInputChange}></input>
-    </div>
+    <form id='userInput' onSubmit={props.taskformSubmitted}>
+      <input 
+        placeholder='type your task here' 
+        onChange={props.userInputChange} 
+        value={props.inputValue}
+      />
+      <button 
+        id='addTaskBttn' 
+      >
+        Add Task
+      </button>
+    </form>
   ) 
 }
 

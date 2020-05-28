@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,SAAS,EAAE,KAAK;EAChB,UAAU,EAAE,GAAG;EACf,gBAAgB,EAAE,KAAK;EACvB,MAAM,EAAE,eAAe;EACvB,OAAO,EAAE,WAAW;EACpB,cAAc,EAAE,SAAS;EACzB,aAAa,EAAE,KAAK;CAOrB;;AAdD,AASI,YATQ,AASP,OAAO,CAAC;EACP,gBAAgB,EAAE,KAAK;EACvB,UAAU,EAAE,QAAQ;EACpB,KAAK,EAAE,KACT;CAAC",
-    "sources": [
-        "AddTaskBttn.scss"
-    ],
-    "names": [],
-    "file": "AddTaskBttn.css"
-}

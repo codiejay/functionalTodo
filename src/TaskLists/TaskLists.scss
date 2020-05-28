@@ -4,11 +4,11 @@
   margin: 3em auto;
   text-align: left;
   padding: 2% 10%;
-  #individualTask div:nth-child(even) { 
+    & li:nth-child(even) { 
       background-color: rgba(0, 0, 0, 0.329);
       color: white;
     }
-    #individualTask div {
+    li {
       background-color: whitesmoke;
       margin: 1em 0;
       font-size: 1.3em;

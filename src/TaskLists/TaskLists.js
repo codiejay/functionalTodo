@@ -5,7 +5,7 @@ import './TaskLists.css';
 const TaskLists = (props) => { 
   return (
     <ul id='taskList'>
-      <IndividualTask taskName={props.taskname}/>
+      {props.taskLists}
     </ul>
   )
 }

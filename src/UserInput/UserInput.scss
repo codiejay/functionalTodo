@@ -1,9 +1,30 @@
 #userInput { 
-  
+
     input { 
-      font-size: 2em;
-      text-transform: uppercase;
+      font-size: 1.3em;
+      text-transform: capitalize;
       padding: 0.5em 2em 0.5em 0.81em;
-      
+      display: block;
+      width: 70%;
+      margin: 0 auto;
+      border: none;
+      border-bottom: 1px solid black;
+    }
+    button { 
+      margin-top: 2em;
+      font-size: 1.3em;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      text-transform: uppercase;
+      background-color: white;
+      border-radius: 200px;
+      border: 1.2px solid black;
+      padding: 0.8em 1.9em;
+      cursor: pointer;
+      transition: all 0.61s;
+        &:hover { 
+          background-color: black;
+          color: white;
+          transform: scale(1.1);
+        }
     }
 }

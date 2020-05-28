@@ -1,35 +1,44 @@
 import React, { useState } from "react";
+import firebase from 'firebase';
 
 //Components
 import UserInput from '../UserInput/UserInput';
-import AddTaskBttn from '../AddTaskBttn/AddTaskBttn';
 import TaskLists from '../TaskLists/TaskLists';
 import IndividualTask from '../IndividualTask/IndividualTask';
 const Container = (props) => { 
   
   const [tasks, setTasks] = useState([[]]);
   let [userinput, setUserInput] = useState('');
-
-  //Button Click Handler
-  const handleaddBttnClicked = () => { 
-    setTasks(tasks.concat(
-      <IndividualTask taskName={userinput} />
-    ))
-  }
   //userInput  Handler
   const handleuserInputChange = (event) => { 
     setUserInput(userinput = event.target.value);
   }
 
+  const handleformSubmit = (e) => { 
+    e.preventDefault();
+    
+    if(Boolean(userinput)) { 
+      let db = firebase.firestore();
 
-
+      db.collection('usersTask')
+        .add({ 
+          taskName: userinput
+        })
+      setTasks(tasks.concat(
+        <IndividualTask taskName={userinput} />
+        ));
+      setUserInput(userinput = ' ');
+      console.log(tasks)
+    }
+  }
   return ( 
     <div id='container'>
-      <UserInput userInputChange={handleuserInputChange}/>
-      <AddTaskBttn addBttnClicked={handleaddBttnClicked}/>
-      <TaskLists 
-      taskname={tasks}
+      <UserInput 
+        userInputChange={handleuserInputChange}
+        taskformSubmitted={handleformSubmit}
+        inputValue={userinput}
       />
+      <TaskLists taskLists={tasks} />
     </div>
   )
 }

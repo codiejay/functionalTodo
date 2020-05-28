@@ -3,9 +3,7 @@ import './IndividualTask.css';
 
 const IndividualTask = (props) => { 
   return (
-    <div id='individualTask'>
-      <p>{props.taskName}</p>
-    </div>
+      <li id='individualTask'>{props.taskName}</li>
   )
 };
 
