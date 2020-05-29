@@ -5,7 +5,11 @@ import './TaskLists.css';
 const TaskLists = (props) => { 
   return (
     <ul id='taskList'>
-      {props.taskLists}
+      {props.taskLists.map(item => {
+        return ( 
+        <IndividualTask taskName={item} />
+        )
+      })}
     </ul>
   )
 }
