@@ -4,30 +4,31 @@ import firebase from 'firebase';
 //Components
 import UserInput from '../UserInput/UserInput';
 import TaskLists from '../TaskLists/TaskLists';
-import IndividualTask from '../IndividualTask/IndividualTask';
 
-const AllTask = () => { 
-  let [alltasks, setTasks] = useState([]);
-
-  let db = firebase.firestore();
+const Getdata = () => { 
+  const [allTask, setallTask] = useState([]);
+  let newTaskArr = [];
   useEffect(() => { 
-    let db = firebase.firestore();
-    db.collection('usersTask')
-    .orderBy('taskname')
-      .onSnapshot((snapshot) => { 
-        let newtaskAll = snapshot.docs.map(doc => { 
-          return doc.data().taskname;
-        })
-        setTasks(alltasks.concat(newtaskAll));
-      })
+    firebase
+      .firestore()
+        .collection('usersTask')
+        .orderBy('taskname')
+        .get()
+          .then((doc) => { 
+            doc.docs.map(item => { 
+              newTaskArr.push(item.data().taskname);
+            })
+            setallTask(allTask.concat(newTaskArr));
+          })
+         
   }, [])
-  return alltasks;
-}
+  return allTask;
+  }
 
 
 //Component being start building here
-const Container = (props) => { 
-  let allTasks = AllTask()
+const Container = (props) => {
+  let newArr = Getdata();
   //useStates
   const [tasks, setTasks] = useState([]);
   let [userinput, setUserInput] = useState('');
@@ -41,12 +42,12 @@ const Container = (props) => {
   const handleformSubmit = (e) => { 
     e.preventDefault();
     if(userinput) { 
-      console.log('dd')
       let db = firebase.firestore();
       db.collection('usersTask')
       .add({
         taskname: userinput
       });
+      setTasks(tasks.concat(userinput));
       setUserInput('');
     }
   }
@@ -57,7 +58,10 @@ const Container = (props) => {
         taskformSubmitted={handleformSubmit}
         inputValue={userinput}
       />
-      <TaskLists taskLists={allTasks} />
+      <TaskLists 
+        storedTasks={newArr} 
+        currentTasks={tasks}
+      />
     </div>
   )
 }

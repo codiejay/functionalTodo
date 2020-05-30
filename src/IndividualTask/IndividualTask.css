@@ -1,5 +1,8 @@
 #individualTask {
   display: block;
   padding: 7px;
+  text-transform: capitalize;
+  padding: 0.4em 1em;
+  border-radius: 6px;
 }
 /*# sourceMappingURL=IndividualTask.css.map */

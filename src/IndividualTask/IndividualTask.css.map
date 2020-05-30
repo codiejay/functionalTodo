@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,eAAe,CAAC;EACd,OAAO,EAAE,KAAK;EACd,OAAO,EAAE,GAAG;CACb",
+    "mappings": "AAAA,AAAA,eAAe,CAAC;EACd,OAAO,EAAE,KAAK;EACd,OAAO,EAAE,GAAG;EACZ,cAAc,EAAE,UAAU;EAC1B,OAAO,EAAE,SAAS;EAClB,aAAa,EAAE,GAAG;CACnB",
     "sources": [
         "IndividualTask.scss"
     ],
