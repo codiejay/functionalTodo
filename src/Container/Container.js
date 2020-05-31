@@ -16,20 +16,16 @@ import TaskLists from '../TaskLists/TaskLists';
         })
   }
 
-  const PushStoredDataToTable = () => {       
-      return Getdata().then(docs => {
-        return docs
-      });
-  }
-
-
 //Component being start building here
 const Container = (props) => {
   //Push in data from firestore database here- 
   // this runs just once;
   useEffect(() => { 
     let newArr = [];
-    PushStoredDataToTable()
+    Getdata()
+      .then((docs) => { 
+        return docs
+      })
       .then(data => {
         data.forEach(doc => {
           newArr.push(doc.data().taskname);
