@@ -11,9 +11,6 @@ import TaskLists from '../TaskLists/TaskLists';
     return db.collection('usersTask')
       .orderBy('taskname')
       .get()
-        .then((docObj) => {
-          return  docObj
-        })
   }
 
 //Component being start building here
