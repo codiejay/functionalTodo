@@ -23,9 +23,6 @@ const Container = (props) => {
   useEffect(() => { 
     let newArr = [];
     Getdata()
-      .then((docs) => { 
-        return docs
-      })
       .then(data => {
         data.forEach(doc => {
           newArr.push(doc.data().taskname);
