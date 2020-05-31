@@ -5,39 +5,49 @@ import firebase from 'firebase';
 import UserInput from '../UserInput/UserInput';
 import TaskLists from '../TaskLists/TaskLists';
 
-const Getdata = () => { 
-  const [allTask, setallTask] = useState([]);
-  let newTaskArr = [];
-  useEffect(() => { 
-    firebase
-      .firestore()
-        .collection('usersTask')
-        .orderBy('taskname')
-        .get()
-          .then((doc) => { 
-            doc.docs.map(item => { 
-              newTaskArr.push(item.data().taskname);
-            })
-            setallTask(allTask.concat(newTaskArr));
-          })
-         
-  }, [])
-  return allTask;
+  const Getdata = () => { 
+    let db = firebase.firestore();
+
+    return db.collection('usersTask')
+      .orderBy('taskname')
+      .get()
+        .then((docObj) => {
+          return  docObj
+        })
+  }
+
+  const PushStoredDataToTable = () => {       
+      return Getdata().then(docs => {
+        return docs
+      });
   }
 
 
 //Component being start building here
 const Container = (props) => {
-  let newArr = Getdata();
+  //Push in data from firestore database here- 
+  // this runs just once;
+  useEffect(() => { 
+    let newArr = [];
+    PushStoredDataToTable()
+      .then(data => {
+        data.forEach(doc => {
+          newArr.push(doc.data().taskname);
+        });
+        setstoredtasks(storedtasks.concat(newArr))
+      })
+  }, [])
+
+
   //useStates
   const [tasks, setTasks] = useState([]);
   let [userinput, setUserInput] = useState('');
-
+  let [storedtasks, setstoredtasks] = useState([]);
   //userInput  Handler
   const handleuserInputChange = (event) => { 
     setUserInput(userinput = event.target.value);
   }
-      
+
   //form submit Handler.
   const handleformSubmit = (e) => { 
     e.preventDefault();
@@ -51,6 +61,7 @@ const Container = (props) => {
       setUserInput('');
     }
   }
+
   return ( 
     <div id='container'>
       <UserInput 
@@ -59,7 +70,7 @@ const Container = (props) => {
         inputValue={userinput}
       />
       <TaskLists 
-        storedTasks={newArr} 
+        storedTasks={storedtasks} 
         currentTasks={tasks}
       />
     </div>

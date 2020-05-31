@@ -3,6 +3,7 @@ import IndividualTask from '../IndividualTask/IndividualTask';
 import './TaskLists.css';
 
 const TaskLists = (props) => { 
+  console.log(props.storedTasks)
   return (
     <ul id='taskList'>
       {
