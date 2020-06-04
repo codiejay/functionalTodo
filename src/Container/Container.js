@@ -4,7 +4,7 @@ import firebase from 'firebase';
 //Components
 import UserInput from '../UserInput/UserInput';
 import TaskLists from '../TaskLists/TaskLists';
-
+import UserBar from '../UserBar/UserBar';
   const Getdata = () => { 
     let db = firebase.firestore();
 
@@ -44,16 +44,17 @@ const Container = (props) => {
     if(userinput) { 
       let db = firebase.firestore();
       db.collection('usersTask')
-      .add({
-        taskname: userinput
-      });
+        .add({
+          taskname: userinput
+        });
       setTasks(tasks.concat(userinput));
       setUserInput('');
     }
   }
 
-  return ( 
+  return (
     <div id='container'>
+      <UserBar />
       <UserInput 
         userInputChange={handleuserInputChange}
         taskformSubmitted={handleformSubmit}

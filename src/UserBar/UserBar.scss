@@ -1,0 +1,36 @@
+.userBar { 
+  display: grid;
+  grid-template-columns: 80% 10% 5%;
+  background-color: rgb(255, 255, 255);  
+  position: absolute;
+  width: 100%;
+  top: 0;
+  vertical-align: middle;
+    h1 { 
+      font-size: 1.2em;
+      font-weight: bolder;
+    }
+    .userSign { 
+      width: 40px;
+      height: 40px;
+      margin-top: 12%;
+      margin-left: 2em;
+      background-color: #C4C4C4;  
+      border-radius: 200px;
+      box-shadow: 0px 4px 60px rgba(8, 25, 69, 0.35);
+      position: relative;
+        &::before { 
+          display: block;
+          content: '';
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: 0;
+          z-index: 0;
+          background-color: #081945;
+          top: 25%;
+          left: 25%;
+          border-radius: 200px;
+        }
+    }
+}
