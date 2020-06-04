@@ -1,8 +1,138 @@
 #individualTask {
-  display: block;
-  padding: 7px;
   text-transform: capitalize;
-  padding: 0.4em 1em;
+  padding: 1em 2em;
   border-radius: 6px;
+  width: 80%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 80% 5% 15%;
+      grid-template-columns: 80% 5% 15%;
+  gap: 1em;
+  -webkit-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
+          box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.06);
+  margin: 2em 0;
+  border-radius: 5px;
+  position: relative;
+}
+
+#individualTask li {
+  background-color: white;
+  font-size: 1.3em;
+  -webkit-animation: slideIn 1s 1;
+          animation: slideIn 1s 1;
+  color: #2E2222;
+  list-style-type: none;
+  display: block;
+}
+
+#individualTask span:nth-child(2) {
+  display: inline-block;
+  width: 100%;
+  height: 20px;
+  background: url("../Assets/delete.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-animation: entrance 1 1.4s;
+          animation: entrance 1 1.4s;
+}
+
+#individualTask span:nth-child(3) {
+  display: inline-block;
+  width: 50%;
+  height: 20px;
+  background: url("../Assets/check.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-animation: entrance 1 1.4s;
+          animation: entrance 1 1.4s;
+  margin-left: 1em;
+}
+
+@-webkit-keyframes entrance {
+  from {
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes entrance {
+  from {
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeAway {
+  from {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+}
+
+@keyframes fadeAway {
+  from {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+}
+
+@-webkit-keyframes fadeAwayDone {
+  from {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+}
+
+@keyframes fadeAwayDone {
+  from {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
 }
 /*# sourceMappingURL=IndividualTask.css.map */

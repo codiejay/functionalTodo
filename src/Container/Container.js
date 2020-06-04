@@ -4,62 +4,64 @@ import firebase from 'firebase';
 //Components
 import UserInput from '../UserInput/UserInput';
 import TaskLists from '../TaskLists/TaskLists';
+import UserBar from '../UserBar/UserBar';
+  const Getdata = () => { 
+    let db = firebase.firestore();
 
-const Getdata = () => { 
-  const [allTask, setallTask] = useState([]);
-  let newTaskArr = [];
-  useEffect(() => { 
-    firebase
-      .firestore()
-        .collection('usersTask')
-        .orderBy('taskname')
-        .get()
-          .then((doc) => { 
-            doc.docs.map(item => { 
-              newTaskArr.push(item.data().taskname);
-            })
-            setallTask(allTask.concat(newTaskArr));
-          })
-         
-  }, [])
-  return allTask;
+    return db.collection('usersTask')
+      .orderBy('taskname')
+      .get()
   }
-
 
 //Component being start building here
 const Container = (props) => {
-  let newArr = Getdata();
+  //Push in data from firestore database here- 
+  // this runs just once;
+  useEffect(() => { 
+    let newArr = [];
+    Getdata()
+      .then(data => {
+        data.forEach(doc => {
+          newArr.push(doc.data().taskname);
+        });
+        setstoredtasks(storedtasks.concat(newArr))
+      })
+  }, [])
+
+
   //useStates
   const [tasks, setTasks] = useState([]);
   let [userinput, setUserInput] = useState('');
-
+  let [storedtasks, setstoredtasks] = useState([]);
   //userInput  Handler
   const handleuserInputChange = (event) => { 
     setUserInput(userinput = event.target.value);
   }
-      
+
   //form submit Handler.
   const handleformSubmit = (e) => { 
     e.preventDefault();
     if(userinput) { 
       let db = firebase.firestore();
       db.collection('usersTask')
-      .add({
-        taskname: userinput
-      });
+        .add({
+          taskname: userinput
+        });
       setTasks(tasks.concat(userinput));
       setUserInput('');
     }
   }
-  return ( 
+
+  return (
     <div id='container'>
+      <UserBar />
       <UserInput 
         userInputChange={handleuserInputChange}
         taskformSubmitted={handleformSubmit}
         inputValue={userinput}
       />
       <TaskLists 
-        storedTasks={newArr} 
+        storedTasks={storedtasks} 
         currentTasks={tasks}
       />
     </div>

@@ -3,7 +3,19 @@ import './IndividualTask.css';
 
 const IndividualTask = (props) => { 
   return (
-      <li id='individualTask'>{props.taskName}</li>
+      <div id='individualTask'>
+        <li >{props.taskName}</li>
+        <span 
+          id="delBttn"
+          onClick={props.delBttnClicked}
+        >
+        </span>
+        <span 
+          id="dontBttn"
+          onClick={props.checkBttnClicked}
+        >
+        </span>
+      </div>
   )
 };
 

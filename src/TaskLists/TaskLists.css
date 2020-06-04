@@ -1,22 +1,9 @@
 #taskList {
-  background-color: rgba(128, 128, 128, 0.288);
-  width: 55%;
-  margin: 3em auto;
+  background-color: rgba(128, 128, 128, 0);
+  width: 60%;
+  margin: 7em auto 0 auto;
   text-align: left;
-  padding: 2% 4%;
-}
-
-#taskList li:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.329);
-  color: white;
-}
-
-#taskList li {
-  background-color: whitesmoke;
-  margin: 1em 0;
-  font-size: 1.3em;
-  -webkit-animation: slideIn 1s 1;
-          animation: slideIn 1s 1;
+  padding: 0px;
 }
 
 @-webkit-keyframes slideIn {

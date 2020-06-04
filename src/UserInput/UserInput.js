@@ -5,7 +5,7 @@ const UserInput = (props) => {
   return (
     <form id='userInput' onSubmit={props.taskformSubmitted}>
       <input 
-        placeholder='type your task here' 
+        placeholder='TYPE HERE TO ADD NEW TASK' 
         onChange={props.userInputChange} 
         value={props.inputValue}
       />
