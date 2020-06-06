@@ -6,7 +6,7 @@ const UserBar = (props) => {
   return ( 
     <div className="userBar">
       <div></div>
-      <h1>James Akpan</h1>
+      <h1>{props.username}</h1>
       <div className="userSign"></div>
     </div>
   )

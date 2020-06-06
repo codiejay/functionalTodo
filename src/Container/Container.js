@@ -5,10 +5,13 @@ import firebase from 'firebase';
 import UserInput from '../UserInput/UserInput';
 import TaskLists from '../TaskLists/TaskLists';
 import UserBar from '../UserBar/UserBar';
+
+//FIREBASE USERDATA: 
+let userFullName = 'goodness';
+
   const Getdata = () => { 
     let db = firebase.firestore();
-
-    return db.collection('usersTask')
+    return db.collection(`${userFullName}Tasks`)
       .orderBy('taskname')
       .get()
   }
@@ -43,7 +46,7 @@ const Container = (props) => {
     e.preventDefault();
     if(userinput) { 
       let db = firebase.firestore();
-      db.collection('usersTask')
+      db.collection(`${userFullName}Tasks`)
         .add({
           taskname: userinput
         });
@@ -54,7 +57,9 @@ const Container = (props) => {
 
   return (
     <div id='container'>
-      <UserBar />
+      <UserBar 
+        username={userFullName}
+      />
       <UserInput 
         userInputChange={handleuserInputChange}
         taskformSubmitted={handleformSubmit}
@@ -63,6 +68,7 @@ const Container = (props) => {
       <TaskLists 
         storedTasks={storedtasks} 
         currentTasks={tasks}
+        username={userFullName}
       />
     </div>
   )

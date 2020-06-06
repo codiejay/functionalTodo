@@ -4,15 +4,15 @@ import firebase from 'firebase';
 //Externam Components
 import IndividualTask from '../IndividualTask/IndividualTask';
 
-
 const TaskLists = (props) => { 
+  let userFullName = props.username;
 
   const delData = (target) => { 
     let targetText = target.innerText.toLowerCase();
+    console.log(targetText)
     //get the data's ID from firebase
     let db = firebase.firestore();
-
-    db.collection('usersTask')
+    db.collection(`${userFullName}Tasks`)
       .where('taskname', '==', `${targetText}`)
       .get()
       .then(data => {
@@ -21,7 +21,8 @@ const TaskLists = (props) => {
           console.log((item.id))
           docArr.push(item.id);
         })
-        db.collection('usersTask')
+        console.log(docArr)
+        db.collection(`${userFullName}Tasks`)
         .doc(docArr[0])
         .delete()
       })
@@ -53,7 +54,7 @@ const TaskLists = (props) => {
   };
   return (
     <ul id='taskList'>
-      <h1>TODAY'S TODO</h1>
+      <h1>TODAY'S TASKS</h1>
       {
         props.storedTasks.map(item => {
           return ( 
