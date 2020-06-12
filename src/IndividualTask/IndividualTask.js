@@ -3,7 +3,10 @@ import './IndividualTask.css';
 
 const IndividualTask = (props) => { 
   return (
-      <div id='individualTask'>
+      <div 
+        id='individualTask'
+        data-type= {props.uniqueID}
+      >
         <li >{props.taskName}</li>
         <span 
           id="delBttn"
