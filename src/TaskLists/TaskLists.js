@@ -5,24 +5,21 @@ import firebase from 'firebase';
 import IndividualTask from '../IndividualTask/IndividualTask';
 
 const TaskLists = (props) => { 
+  let user = firebase.auth().currentUser
   let userFullName = props.username;
-
   const delData = (target) => { 
-    let targetText = target.innerText.toLowerCase();
-    console.log(targetText)
-    //get the data's ID from firebase
+    let targetUID = parseInt(target.dataset.type);
+    // get the data's ID from firebase
     let db = firebase.firestore();
-    db.collection(`${userFullName}Tasks`)
-      .where('taskname', '==', `${targetText}`)
+    db.collection(user.uid)
+      .where('uniqueId', '==', targetUID)
       .get()
       .then(data => {
         let docArr = [];
         data.docs.forEach(item => { 
-          console.log((item.id))
           docArr.push(item.id);
         })
-        console.log(docArr)
-        db.collection(`${userFullName}Tasks`)
+        db.collection(user.uid)
         .doc(docArr[0])
         .delete()
       })
@@ -52,6 +49,8 @@ const TaskLists = (props) => {
     })
     delData(e.target.parentNode)
   };
+
+  console.log(typeof props.currentTasks)
   return (
     <ul id='taskList'>
       <h1>TODAY'S TASKS</h1>
@@ -59,7 +58,8 @@ const TaskLists = (props) => {
         props.storedTasks.map(item => {
           return ( 
             <IndividualTask 
-              taskName={item} 
+              uniqueID={item.uniqueId}
+              taskName={item.taskname} 
               delBttnClicked={handledelBttnClicked}
               checkBttnClicked={handlecheckBttnClicked}
             />
@@ -68,9 +68,11 @@ const TaskLists = (props) => {
       }
       { 
         props.currentTasks.map(item => { 
+          console.log(item)
           return ( 
             <IndividualTask 
-              taskName={item} 
+              uniqueID={item.uniqueId}
+              taskName={item.userinput} 
               delBttnClicked={handledelBttnClicked}
               checkBttnClicked={handlecheckBttnClicked}
             />

@@ -6,18 +6,21 @@ import UserInput from '../UserInput/UserInput';
 import TaskLists from '../TaskLists/TaskLists';
 import UserBar from '../UserBar/UserBar';
 
-//FIREBASE USERDATA: 
-let userFullName = 'goodness';
-
-  const Getdata = () => { 
-    let db = firebase.firestore();
-    return db.collection(`${userFullName}Tasks`)
-      .orderBy('taskname')
-      .get()
-  }
 
 //Component being start building here
 const Container = (props) => {
+  let user = firebase.auth().currentUser;
+  //FIREBASE USERDATA: 
+  let userFullName = props.realUserName;
+  let userId = props.userId;
+
+    const Getdata = () => { 
+      let db = firebase.firestore();
+      return db.collection(user.uid)
+        .orderBy('taskname')
+        .get()
+  }
+
   //Push in data from firestore database here- 
   // this runs just once;
   useEffect(() => { 
@@ -25,17 +28,17 @@ const Container = (props) => {
     Getdata()
       .then(data => {
         data.forEach(doc => {
-          newArr.push(doc.data().taskname);
+          newArr.push(doc.data());
         });
         setstoredtasks(storedtasks.concat(newArr))
       })
   }, [])
 
-
   //useStates
   const [tasks, setTasks] = useState([]);
   let [userinput, setUserInput] = useState('');
   let [storedtasks, setstoredtasks] = useState([]);
+  let [uniqueId, setuniqueId] = useState([]);
   //userInput  Handler
   const handleuserInputChange = (event) => { 
     setUserInput(userinput = event.target.value);
@@ -45,16 +48,17 @@ const Container = (props) => {
   const handleformSubmit = (e) => { 
     e.preventDefault();
     if(userinput) { 
+      setuniqueId( uniqueId = new Date().getTime() );
       let db = firebase.firestore();
-      db.collection(`${userFullName}Tasks`)
+      db.collection(`${userId}`)
         .add({
-          taskname: userinput
+          taskname: userinput,
+          uniqueId: uniqueId,
         });
-      setTasks(tasks.concat(userinput));
+      setTasks(tasks.concat({userinput: userinput, uniqueId:uniqueId}));
       setUserInput('');
     }
   }
-
   return (
     <div id='container'>
       <UserBar 

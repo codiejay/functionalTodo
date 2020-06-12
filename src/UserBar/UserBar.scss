@@ -1,6 +1,6 @@
 .userBar { 
   display: grid;
-  grid-template-columns: 80% 10% 5%;
+  grid-template-columns: 85% 5% 5%;
   background-color: rgb(255, 255, 255);  
   position: absolute;
   width: 100%;
@@ -9,6 +9,7 @@
     h1 { 
       font-size: 1.2em;
       font-weight: bolder;
+      text-transform: uppercase;
     }
     .userSign { 
       width: 40px;

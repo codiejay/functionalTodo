@@ -1,8 +1,8 @@
 .userBar {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 80% 10% 5%;
-      grid-template-columns: 80% 10% 5%;
+  -ms-grid-columns: 85% 5% 5%;
+      grid-template-columns: 85% 5% 5%;
   background-color: white;
   position: absolute;
   width: 100%;
@@ -13,6 +13,7 @@
 .userBar h1 {
   font-size: 1.2em;
   font-weight: bolder;
+  text-transform: uppercase;
 }
 
 .userBar .userSign {
