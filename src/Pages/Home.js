@@ -8,6 +8,7 @@ const Home = (props) => {
     <Container 
       realUserName={props.username}
       userId={props.userId}
+      signoutUser={props.signoutUser}
     /> 
     : 
     <Redirect to='/login' />

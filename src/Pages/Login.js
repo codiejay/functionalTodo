@@ -3,7 +3,8 @@ import firebase from 'firebase';
 import { 
   Link,
   Redirect
-} from 'react-router-dom'
+} from 'react-router-dom';
+import './Login.scss'
 
 const Login = (props) => { 
 
@@ -12,18 +13,17 @@ const Login = (props) => {
     userpassword: '',
   });
 
-  let userHasSignedIn = (d) => { 
-    let userId = d.user.uid;
+  let userHasSignedIn = (data) => { 
+    let userId = data.user.uid;
     props.loginUser();
-    props.getUserId(d.user.uid);
+    props.getUserId(data.user.uid);
     firebase.firestore()
-      .collection(d.user.uid)
+      .collection(data.user.uid)
       .doc('credentials')
       .get()
       .then( 
-        (d) => { 
-          console.log(d.data())
-          props.setUsername(d.data().username);
+        (docs) => { 
+          props.setUsername(docs.data().username);
         }
       )
   };  
@@ -35,8 +35,8 @@ const Login = (props) => {
       firebase.auth()
         .signInWithEmailAndPassword(userdetails.username, userdetails.userpassword)
           .then( 
-            d => { 
-              userHasSignedIn(d)
+            docs => { 
+              userHasSignedIn(docs)
             }
           )
     }
@@ -55,9 +55,13 @@ const Login = (props) => {
         setuserdetails({...userdetails, userpassword: targetElem})
     }
   } 
+
+  let [showloginError, setshowloginError] = useState('none')
   return ( 
     (props.usersignedIn) ? <Redirect to='/' /> :
-    <form id='loginForm' onSubmit={formSubmitted}> 
+    <div className="loginContainer">
+      <form id='loginForm' onSubmit={formSubmitted}> 
+        <h1 className="heading">you're logging in</h1>
         <input 
           type="text" 
           placeholder='Your Email'
@@ -72,11 +76,19 @@ const Login = (props) => {
         />
 
         <button>Login</button>
-        <p>
+        <p id='loginPromptMobile'>
           Don't have an account yet? 
-          <Link to='./signup'>Sign Up here</Link> 
+          <Link to='./signup'> Sign Up here</Link> 
         </p>
-    </form>
+        <div className="errorBox" style={{display: showloginError}}>
+          <p>Error. Try again or <Link to='/signup'>Signup first</Link> </p>
+        </div>
+      </form>
+      <div className="signupBox">
+        <h1>Don't own an accout? </h1>
+        <Link to='/signup'>Sign Up.</Link>
+      </div>
+    </div>
   )
 }
 

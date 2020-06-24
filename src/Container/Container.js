@@ -63,6 +63,7 @@ const Container = (props) => {
     <div id='container'>
       <UserBar 
         username={userFullName}
+        signoutUser={props.signoutUser}
       />
       <UserInput 
         userInputChange={handleuserInputChange}

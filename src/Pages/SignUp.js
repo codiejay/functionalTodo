@@ -3,7 +3,7 @@ import firebase from 'firebase';
 import { 
   Link, Redirect
 } from 'react-router-dom';
-import UserInput from '../UserInput/UserInput';
+import './SignUp.scss';
 
 
 const SignUp = (props) => { 
@@ -64,39 +64,50 @@ const SignUp = (props) => {
     userEmail: '',
     userPassword: ''
   });
+  let [errorOccured, seterrorOccured] = useState('none')
   return ( 
-    (props.usersignedIn) ? <Redirect to='/login' /> :
-    <form id='signForm' onSubmit={formSubmitted}>
-        <input 
-          onChange={userDetailsUpdated}
-          type="text" 
-          placeholder='Your First Name'
-          name='username'
-        />
-        <input 
-          onChange={userDetailsUpdated}
-          type="text" 
-          placeholder='Your Last Name'
-          name='userlastname'
-        />
-        <input 
-          onChange={userDetailsUpdated}
-          type="text" 
-          placeholder='Your Email'
-          name='useremail'
-        />
-        <input 
-          onChange={userDetailsUpdated}
-          type="password" 
-          placeholder='Your Password'
-          name='userpassword'
-        />
-        <button>SignUp</button>
-        <p>
-          Own an account already?
-          <Link to='./login'>Login here</Link> 
-        </p>
-    </form>
+    (props.usersignedIn) ? <Redirect to='/' /> :
+    <div className="signupcontainer">
+      <form id='signForm' onSubmit={formSubmitted}>
+          <h1 className="heading">you're about to SIGN-UP</h1>
+          <input 
+            onChange={userDetailsUpdated}
+            type="text" 
+            placeholder='Your First Name'
+            name='username'
+          />
+          <input 
+            onChange={userDetailsUpdated}
+            type="text" 
+            placeholder='Your Last Name'
+            name='userlastname'
+          />
+          <input 
+            onChange={userDetailsUpdated}
+            type="text" 
+            placeholder='Your Email'
+            name='useremail'
+          />
+          <input 
+            onChange={userDetailsUpdated}
+            type="password" 
+            placeholder='Your Password'
+            name='userpassword'
+          />
+          <button>Sign-Up</button>
+          <p id='loginPromptMobile'>
+            Own an account already?
+            <Link to='./login'> Login here</Link> 
+          </p>
+          <div className="errorMessage" style={{display: `${errorOccured}`, transition: 'all 2s'}}>
+            <p>error. please re-check details. <Link to='/login'>please log in</Link></p>
+          </div>
+      </form>
+      <div id='loginBox'>
+        <h1>own an account already?</h1>
+        <Link to='/login'>Login</Link>
+      </div>
+    </div>
   )
 }
 

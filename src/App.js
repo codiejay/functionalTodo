@@ -30,6 +30,27 @@ const App = () => {
     setUserId(userId = id);
   }
 
+  firebase.auth().onAuthStateChanged((user) => { 
+    if(user) { 
+      setuserSignedInState(userSignedInState = true);
+      setUserId(userId = user.uid);
+      firebase.firestore()
+      .collection(user.uid)
+      .doc('credentials')
+      .get()
+      .then(d => {
+        setuserfirstname(userfirstname = d.data().username)
+      });
+    }
+  });
+
+  const signoutUser = () => { 
+    firebase.auth().signOut().then(() => { 
+      setuserSignedInState(userSignedInState = false);
+      
+    })
+  }
+
   return (
     <BrowserRouter>
       <Route exact path='/'> 
@@ -38,6 +59,7 @@ const App = () => {
               usersignedIn= {userSignedInState}
               username={userfirstname}
               userId={userId}
+              signoutUser={signoutUser}
             />
          </div>
       </Route>

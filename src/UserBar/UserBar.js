@@ -7,7 +7,9 @@ const UserBar = (props) => {
     <div className="userBar">
       <div></div>
       <h1>{props.username}</h1>
-      <div className="userSign"></div>
+      <div className="userSign">
+        <button onClick={props.signoutUser}>Sign Out</button>
+      </div>
     </div>
   )
 }
