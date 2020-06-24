@@ -14,7 +14,7 @@ const IndividualTask = (props) => {
         >
         </span>
         <span 
-          id="dontBttn"
+          id="regularDoneBttn"
           onClick={props.checkBttnClicked}
         >
         </span>

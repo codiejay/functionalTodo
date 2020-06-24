@@ -1,5 +1,7 @@
 import firebase from 'firebase';
+require('dotenv').config();
 
+console.log(process.env);
 // Your web app's Firebase configuration
 let firebaseConfig = {
   apiKey: "AIzaSyBR1YAltuzJJP9Czuqo3c5Os1w8NFxJIEY",

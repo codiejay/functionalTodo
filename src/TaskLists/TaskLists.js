@@ -40,24 +40,44 @@ const TaskLists = (props) => {
 
   const handlecheckBttnClicked = (e) => { 
     let parentNode = e.target.parentNode;
-    parentNode.setAttribute(
-      'style',
-      'animation: fadeAwayDone 0.5s 1'
-      );
-    parentNode.addEventListener('animationend', (e) => { 
-      e.target.setAttribute('style', 'display: none')
-    })
-    delData(e.target.parentNode)
+    console.log(e.target.id)
+    if(e.target.id === 'regularDoneBttn') { 
+      parentNode.children[0].setAttribute('style', 'opacity: 0.2');
+      parentNode.children[1].setAttribute('style', 'opacity: 0.2');
+      e.target.setAttribute('id', 'undoBttn');
+
+      firebase.firestore()
+      .collection(user.uid)
+      .where('uniqueId', '==', parseInt(e.target.parentNode.dataset.type))
+      .get()
+      .then(d => { 
+        let docId = ' '
+        d.forEach(i => { 
+          docId = i.id
+        })
+        firebase.firestore()
+        .collection(user.uid)
+        .doc(docId)
+        .update({ 
+          'done': true,
+        })
+      })
+    }
+    else { 
+      parentNode.children[0].setAttribute('style', 'opacity: initial');
+      parentNode.children[1].setAttribute('style', 'opacity: initial');
+      e.target.setAttribute('id', 'regularDoneBttn');
+    }
   };
 
-  console.log(typeof props.currentTasks)
   return (
     <ul id='taskList'>
       <h1>TODAY'S TASKS</h1>
       {
-        props.storedTasks.map(item => {
+        props.storedTasks.map((item, key) => {
           return ( 
             <IndividualTask 
+              key={key}
               uniqueID={item.uniqueId}
               taskName={item.taskname} 
               delBttnClicked={handledelBttnClicked}
@@ -67,10 +87,11 @@ const TaskLists = (props) => {
         })
       }
       { 
-        props.currentTasks.map(item => { 
+        props.currentTasks.map((item, key) => { 
           console.log(item)
           return ( 
             <IndividualTask 
+              key={key}
               uniqueID={item.uniqueId}
               taskName={item.userinput} 
               delBttnClicked={handledelBttnClicked}

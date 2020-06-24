@@ -54,6 +54,7 @@ const Container = (props) => {
         .add({
           taskname: userinput,
           uniqueId: uniqueId,
+          done: false,
         });
       setTasks(tasks.concat({userinput: userinput, uniqueId:uniqueId}));
       setUserInput('');
