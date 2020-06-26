@@ -8,6 +8,9 @@ import './SignUp.scss';
 
 const SignUp = (props) => { 
 
+  let timeError;
+
+  // Add user to firebase database
   const addUser = (id) => { 
     firebase.firestore()
       .collection(id)
@@ -21,7 +24,6 @@ const SignUp = (props) => {
     props.signUserIn();
     props.setUserId(id)
   }
-
   //User submits form
   const formSubmitted = (e) => { 
     e.preventDefault();
@@ -36,8 +38,20 @@ const SignUp = (props) => {
         .createUserWithEmailAndPassword(userInput.userEmail, userInput.userPassword)
         .then((d) => { 
           addUser(d.user.uid)
-        } )
+        })
+        .catch(error => { 
+          setErrorMessage(errorMessage = error.message);
+          seterrorOccured(errorOccured = 'errorMessageShow');
+          timeError = setInterval(() => {
+            cancelErrorMessage()
+          }, 3000);
+        })
     }
+  }
+
+  const cancelErrorMessage = () => { 
+    seterrorOccured(errorOccured  = 'errorMessageHide');
+    clearInterval(timeError)
   }
 
   const userDetailsUpdated = (event) => { 
@@ -64,7 +78,8 @@ const SignUp = (props) => {
     userEmail: '',
     userPassword: ''
   });
-  let [errorOccured, seterrorOccured] = useState('none')
+  let [errorOccured, seterrorOccured] = useState('errorMessageHide');
+  let [errorMessage, setErrorMessage] = useState('');
   return ( 
     (props.usersignedIn) ? <Redirect to='/' /> :
     <div className="signupcontainer">
@@ -99,8 +114,14 @@ const SignUp = (props) => {
             Own an account already?
             <Link to='./login'> Login here</Link> 
           </p>
-          <div className="errorMessage" style={{display: `${errorOccured}`, transition: 'all 2s'}}>
-            <p>error. please re-check details. <Link to='/login'>please log in</Link></p>
+          <div 
+            className={errorOccured} 
+            style={{
+              display: 'block', 
+              transition: 'all 2s',
+            }}
+          >
+            <p>{errorMessage}</p>
           </div>
       </form>
       <div id='loginBox'>

@@ -61,15 +61,36 @@
               border-bottom: 1px solid #0a0a0acc;
             }
         }
-        .errorBox { 
-          background: linear-gradient(to top left, #8E54E9, #4776E6);
+        .errorBoxHide { 
+          background: red;
           color: white;
-          padding: 5px 1em;
-          width: 60%;
+          padding: 5px 0;
+          width: 100%;
           text-align: center;
           border-radius: 7px;
           font-weight: bolder;
           text-transform: uppercase;
+          opacity: 0;
+          font-size: 0.1em;
+            a { 
+              color: white;
+              text-decoration: none;
+              padding-left: 6px;
+              text-transform: uppercase;
+              border-bottom: 1px solid white;
+            }
+        }
+        .errorBoxShow { 
+          background: red;
+          color: white;
+          padding: 5px 0;
+          width: 100%;
+          text-align: center;
+          border-radius: 7px;
+          font-weight: bolder;
+          text-transform: uppercase;
+          font-size: 0.9em;
+          opacity: 1;
             a { 
               color: white;
               text-decoration: none;

@@ -11,7 +11,7 @@ const Home = (props) => {
       signoutUser={props.signoutUser}
     /> 
     : 
-    <Redirect to='/login' />
+    <Redirect to='/signup' />
   ) 
 }
 

@@ -8,6 +8,7 @@ import './Login.scss'
 
 const Login = (props) => { 
 
+  let timeErrorAppear;
   let [userdetails, setuserdetails] = useState({ 
     username: '',
     userpassword: '',
@@ -39,9 +40,20 @@ const Login = (props) => {
               userHasSignedIn(docs)
             }
           )
+          .catch(error => { 
+            seterrorMessage(errorMessage = error.message.split('.')[0]);
+            setshowloginError(showloginError = 'errorBoxShow');
+            timeErrorAppear = setInterval(() => {
+              cancelError();
+            }, 2000);
+          })
     }
   };
 
+  let cancelError = () => { 
+    clearInterval(timeErrorAppear);
+    setshowloginError(showloginError = 'errorBoxHide');
+  }
 
   let userDeatilsChange = (e) => { 
     let targetElem = e.target.value;
@@ -56,7 +68,8 @@ const Login = (props) => {
     }
   } 
 
-  let [showloginError, setshowloginError] = useState('none')
+  let [showloginError, setshowloginError] = useState('errorBoxHide');
+  let [errorMessage, seterrorMessage] = useState('');
   return ( 
     (props.usersignedIn) ? <Redirect to='/' /> :
     <div className="loginContainer">
@@ -80,8 +93,8 @@ const Login = (props) => {
           Don't have an account yet? 
           <Link to='./signup'> Sign Up here</Link> 
         </p>
-        <div className="errorBox" style={{display: showloginError}}>
-          <p>Error. Try again or <Link to='/signup'>Signup first</Link> </p>
+        <div className={showloginError} style={{transition: 'all 0.3s'}}>
+          <p>{errorMessage}.</p>
         </div>
       </form>
       <div className="signupBox">

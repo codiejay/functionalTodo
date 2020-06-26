@@ -4,7 +4,7 @@ import './IndividualTask.css';
 const IndividualTask = (props) => { 
   return (
       <div 
-        id='individualTask'
+        id={props.containerId}
         data-type= {props.uniqueID}
       >
         <li >{props.taskName}</li>
@@ -14,7 +14,7 @@ const IndividualTask = (props) => {
         >
         </span>
         <span 
-          id="regularDoneBttn"
+          id={props.checkBttnId}
           onClick={props.checkBttnClicked}
         >
         </span>

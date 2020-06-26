@@ -40,12 +40,9 @@ const TaskLists = (props) => {
 
   const handlecheckBttnClicked = (e) => { 
     let parentNode = e.target.parentNode;
-    console.log(e.target.id)
     if(e.target.id === 'regularDoneBttn') { 
-      parentNode.children[0].setAttribute('style', 'opacity: 0.2');
-      parentNode.children[1].setAttribute('style', 'opacity: 0.2');
       e.target.setAttribute('id', 'undoBttn');
-
+      parentNode.setAttribute('id', 'individualTaskBlur')
       firebase.firestore()
       .collection(user.uid)
       .where('uniqueId', '==', parseInt(e.target.parentNode.dataset.type))
@@ -64,9 +61,24 @@ const TaskLists = (props) => {
       })
     }
     else { 
-      parentNode.children[0].setAttribute('style', 'opacity: initial');
-      parentNode.children[1].setAttribute('style', 'opacity: initial');
       e.target.setAttribute('id', 'regularDoneBttn');
+      parentNode.setAttribute('id', 'individualTask')
+      firebase.firestore()
+      .collection(user.uid)
+      .where('uniqueId', '==', parseInt(e.target.parentNode.dataset.type))
+      .get()
+      .then(d => { 
+        let docId = ' '
+        d.forEach(i => { 
+          docId = i.id
+        })
+        firebase.firestore()
+        .collection(user.uid)
+        .doc(docId)
+        .update({ 
+          'done': false,
+        })
+      })
     }
   };
 
@@ -75,6 +87,7 @@ const TaskLists = (props) => {
       <h1>TODAY'S TASKS</h1>
       {
         props.storedTasks.map((item, key) => {
+          console.log(item)
           return ( 
             <IndividualTask 
               key={key}
@@ -82,13 +95,14 @@ const TaskLists = (props) => {
               taskName={item.taskname} 
               delBttnClicked={handledelBttnClicked}
               checkBttnClicked={handlecheckBttnClicked}
+              checkBttnId={(item.done ? 'undoBttn' : 'regularDoneBttn' )}
+              containerId={(item.done) ? 'individualTaskBlur' : 'individualTask'}
             />
           )
         })
       }
       { 
         props.currentTasks.map((item, key) => { 
-          console.log(item)
           return ( 
             <IndividualTask 
               key={key}
@@ -96,6 +110,8 @@ const TaskLists = (props) => {
               taskName={item.userinput} 
               delBttnClicked={handledelBttnClicked}
               checkBttnClicked={handlecheckBttnClicked}
+              checkBttnId={'regularDoneBttn'}
+              containerId={'individualTask'}
             />
           )
         })
