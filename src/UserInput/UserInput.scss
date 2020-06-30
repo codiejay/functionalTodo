@@ -1,28 +1,35 @@
 * { 
   font-family: 'Poppins', sans-serif;
 }
-
 #userInput { 
   width: 60%;
   margin: 0 auto;
   text-align: center;
     input { 
       font-size: 1.3em;
-      text-transform: lowercase;
       padding: 0.5em 2em 0.5em 0.81em;
       display: block;
       border: none;
       border-bottom: 1px solid #B9B9B9;
       color: #B9B9B9;
       width: 90%;
+      transition: 0.4s;
+      outline: 1px solid  transparent;
+      text-transform: capitalize;
+        &:focus { 
+          outline: 1px solid  transparent;
+          transform: scale(1);
+          color: black;
+          font-weight: bold;
+          font-size: 1.6em;
+        }
     }
     button {  
       font-size: 1.2em;
       font-family: 'Poppins', sans-serif;
-      text-transform: inherit;
+      text-transform: uppercase;
       color: rgb(39, 39, 39);
       background-color: white;
-      border-radius: 200px;
       border: 1.2px solid black;
       padding: 0.2em 1em;
       cursor: pointer;
@@ -30,10 +37,5 @@
       display: block;
       width: 20%;
       margin-top: 2em ;
-        &:hover { 
-          background-color: black;
-          color: white;
-          transform: scale(1.1);
-        }
     }
 }

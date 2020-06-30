@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './TaskLists.css';
+import './TaskLists.scss';
 import firebase from 'firebase';
 //Externam Components
 import IndividualTask from '../IndividualTask/IndividualTask';

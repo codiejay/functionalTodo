@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './UserBar.css'
+import './UserBar.scss'
 
 const UserBar = (props) => { 
 
