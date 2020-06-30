@@ -98,7 +98,7 @@ const Login = (props) => {
         </div>
       </form>
       <div className="signupBox">
-        <h1>Don't own an accout? </h1>
+        <h1>Don't own an account? </h1>
         <Link to='/signup'>Sign Up.</Link>
       </div>
     </div>
