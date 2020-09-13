@@ -99,7 +99,7 @@ const Login = (props) => {
       </form>
       <div className="signupBox">
         <h1>Don't own an account? </h1>
-        <Link to='/signup'>Sign Up.</Link>
+        <Link to='/signup'>Sign Up</Link>
       </div>
     </div>
   )

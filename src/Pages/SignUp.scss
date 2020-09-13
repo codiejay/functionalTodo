@@ -158,6 +158,39 @@
     }
 }
 
+
+//Reponsive code for tablets
+@media(max-width: 1053px) { 
+  .signupcontainer { 
+    height: 100vh;
+      form { 
+        padding: 9vh 4vw;
+          .heading { 
+            font-size: 2.5em;
+          }
+          button { 
+            width: 60%;
+          }
+      }
+      #loginBox { 
+        padding: 9vh 4vw;
+          h1 { 
+            font-size: 2.2em;
+          }
+          a { 
+            width: 60%;
+          }
+      }
+  }
+} 
+
+//Reponsive code for mobile
+@media(max-width: 555px) { 
+  .signupcontainer { 
+    display: block;
+  }
+}
+
 @keyframes showError { 
   from { 
     opacity: 0;

@@ -83,11 +83,10 @@ const TaskLists = (props) => {
   };
 
   return (
-    <ul id='taskList'>
+    <div id='taskList'>
       <h1>TODAY'S TASKS</h1>
       {
         props.storedTasks.map((item, key) => {
-          console.log(item)
           return ( 
             <IndividualTask 
               key={key}
@@ -116,7 +115,7 @@ const TaskLists = (props) => {
           )
         })
       }
-    </ul>
+    </div>
   )
 }
 

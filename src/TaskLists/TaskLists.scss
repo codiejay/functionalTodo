@@ -6,14 +6,24 @@
   padding: 0px;
 }
 
-@keyframes slideIn { 
-  from { 
-    opacity: 0;
-    transform: translateY(70px);
+//Reponsive code for tablets
+@media(max-width: 1053px) { 
+  #taskList { 
+    width: 90%;
   }
+} 
 
-  to { 
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+
+
+
+// @keyframes slideIn { 
+//   from { 
+//     opacity: 0;
+//     transform: translateY(70px);
+//   }
+
+//   to { 
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }

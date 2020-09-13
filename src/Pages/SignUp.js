@@ -84,7 +84,7 @@ const SignUp = (props) => {
     (props.usersignedIn) ? <Redirect to='/' /> :
     <div className="signupcontainer">
       <form id='signForm' onSubmit={formSubmitted}>
-          <h1 className="heading">you're about to SIGN-UP</h1>
+          <h1 className="heading">you're about <br></br> to  SIGN-UP</h1>
           <input 
             onChange={userDetailsUpdated}
             type="text" 

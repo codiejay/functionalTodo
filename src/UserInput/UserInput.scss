@@ -15,7 +15,6 @@
       width: 90%;
       transition: 0.4s;
       outline: 1px solid  transparent;
-      text-transform: capitalize;
         &:focus { 
           outline: 1px solid  transparent;
           transform: scale(1);
@@ -39,3 +38,23 @@
       margin-top: 2em ;
     }
 }
+
+
+//Reponsive code for tablets
+@media(max-width: 1053px) { 
+  #userInput { 
+    width: 90%;
+    margin: 2em auto;
+      input { 
+        padding: 0;
+        font-size: 1em;
+          &:focus { 
+            font-size: 1.2em;
+          }
+      }
+      button { 
+        width: fit-content;
+        font-size: 0.8em;
+      }
+  }
+} 

@@ -1,0 +1,14 @@
+#taskList {
+  background-color: rgba(128, 128, 128, 0);
+  width: 60%;
+  margin: 7em auto 0 auto;
+  text-align: left;
+  padding: 0px;
+}
+
+@media (max-width: 1053px) {
+  #taskList {
+    width: 90%;
+  }
+}
+/*# sourceMappingURL=TaskLists.css.map */

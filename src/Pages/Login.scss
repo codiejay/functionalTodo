@@ -142,3 +142,27 @@
         }
     }
 }
+
+//Reponsive code for tablets
+@media(max-width: 1053px) { 
+  .loginContainer {
+      
+      form { 
+        padding: 9vh 10%;
+      }
+      .signupBox { 
+        padding: 8vh 10%;
+          a { 
+            width: 100%;
+            padding-left: 20%;
+          }
+      }
+  }
+} 
+
+//Reponsive code for mobile
+@media(max-width: 555px) { 
+  .loginContainer { 
+    display: block;
+  }
+}

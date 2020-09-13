@@ -1,0 +1,187 @@
+.loginContainer {
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5fr 3.5fr;
+      grid-template-columns: 5fr 3.5fr;
+}
+
+.loginContainer form {
+  padding: 17vh 20%;
+}
+
+.loginContainer form .heading {
+  color: #0a0a0acc;
+  font-size: 3em;
+  text-transform: uppercase;
+}
+
+.loginContainer form input {
+  display: block;
+  margin: 2em 0;
+  font-size: 1em;
+  padding: 9px 9px;
+  border: 1px solid #0a0a0acc;
+  border-radius: 3px;
+}
+
+.loginContainer form input:focus {
+  outline: 2px solid #8E54E9;
+  border: none;
+}
+
+.loginContainer form button {
+  background-color: white;
+  color: #0a0a0acc;
+  font-size: 1.3em;
+  font-weight: bolder;
+  border: 1px solid #8E54E9;
+  padding: 0.4em 2.3em 0.4em 3em;
+  cursor: pointer;
+  border-radius: 200px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.loginContainer form button::before {
+  width: 16px;
+  height: 16px;
+  content: '';
+  background: url("../Assets/purplegoIcon.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  position: absolute;
+  left: 15%;
+  top: 30%;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.loginContainer form button:hover::before {
+  left: 80%;
+}
+
+.loginContainer form #loginPromptMobile {
+  margin-top: 2em;
+  text-transform: uppercase;
+}
+
+.loginContainer form #loginPromptMobile a {
+  display: inline-block;
+  padding-left: 7px;
+  text-decoration: none;
+  color: #0a0a0acc;
+  border-bottom: 1px solid #0a0a0acc;
+}
+
+.loginContainer form .errorBoxHide {
+  background: red;
+  color: white;
+  padding: 5px 0;
+  width: 100%;
+  text-align: center;
+  border-radius: 7px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  opacity: 0;
+  font-size: 0.1em;
+}
+
+.loginContainer form .errorBoxHide a {
+  color: white;
+  text-decoration: none;
+  padding-left: 6px;
+  text-transform: uppercase;
+  border-bottom: 1px solid white;
+}
+
+.loginContainer form .errorBoxShow {
+  background: red;
+  color: white;
+  padding: 5px 0;
+  width: 100%;
+  text-align: center;
+  border-radius: 7px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  opacity: 1;
+}
+
+.loginContainer form .errorBoxShow a {
+  color: white;
+  text-decoration: none;
+  padding-left: 6px;
+  text-transform: uppercase;
+  border-bottom: 1px solid white;
+}
+
+.loginContainer .signupBox {
+  background: -webkit-gradient(linear, right bottom, left top, from(#8E54E9), to(#4776E6));
+  background: linear-gradient(to top left, #8E54E9, #4776E6);
+  padding: 17vh 5%;
+}
+
+.loginContainer .signupBox h1 {
+  font-size: 3.2em;
+  text-transform: uppercase;
+  color: white;
+}
+
+.loginContainer .signupBox a {
+  background-color: white;
+  text-decoration: none;
+  color: #0a0a0acc;
+  font-weight: bold;
+  padding: 0.5em 2em;
+  font-size: 1.4em;
+  border: 1px solid whitesmoke;
+  border-radius: 40px;
+  padding-left: 15%;
+  position: relative;
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  text-transform: uppercase;
+}
+
+.loginContainer .signupBox a::before {
+  width: 16px;
+  height: 16px;
+  content: '';
+  background: url("../Assets/purplegoIcon.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  position: absolute;
+  left: 15%;
+  top: 35%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.loginContainer .signupBox a:hover::before {
+  left: 85%;
+}
+
+@media (max-width: 1053px) {
+  .loginContainer form {
+    padding: 9vh 10%;
+  }
+  .loginContainer .signupBox {
+    padding: 8vh 10%;
+  }
+  .loginContainer .signupBox a {
+    width: 100%;
+    padding-left: 20%;
+  }
+}
+
+@media (max-width: 555px) {
+  .loginContainer {
+    display: block;
+  }
+}
+/*# sourceMappingURL=Login.css.map */

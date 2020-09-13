@@ -5,7 +5,6 @@ const UserBar = (props) => {
 
   return ( 
     <div className="userBar">
-      <div></div>
       <h1>{props.username}</h1>
       <div className="userSign">
         <button onClick={props.signoutUser}>Sign Out</button>

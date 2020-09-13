@@ -1,0 +1,55 @@
+.userBar {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 70% 25%;
+      grid-template-columns: 70% 25%;
+  background-color: white;
+  width: 70%;
+  margin: 0 auto 3em auto;
+}
+
+.userBar h1 {
+  font-size: 1.2em;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.userBar .userSign {
+  width: 100%;
+  height: 40px;
+  margin-top: 4%;
+  margin-left: 2em;
+  position: relative;
+  text-align: right;
+}
+
+.userBar .userSign button {
+  background-color: white;
+  font-size: 0.8em;
+  border: 1px solid black;
+  font-weight: bolder;
+  padding: 0.4em 1em;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .userBar {
+    padding: 0.4em 0;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 485px) {
+  .userBar {
+    -ms-grid-columns: 40% 50%;
+        grid-template-columns: 40% 50%;
+    padding: 0.4em 0;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .userBar h1 {
+    padding-left: 0.5em;
+  }
+}
+/*# sourceMappingURL=UserBar.css.map */
