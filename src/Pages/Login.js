@@ -15,8 +15,6 @@ const Login = (props) => {
   });
 
   let userHasSignedIn = (data) => { 
-    let userId = data.user.uid;
-    props.loginUser();
     props.getUserId(data.user.uid);
     firebase.firestore()
       .collection(data.user.uid)
@@ -26,7 +24,8 @@ const Login = (props) => {
         (docs) => { 
           props.setUsername(docs.data().username);
         }
-      )
+      );
+      props.loginUser();
   };  
 
   let formSubmitted = (event) => { 

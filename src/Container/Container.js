@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import firebase from 'firebase';
 
 //Components
-import UserInput from '../UserInput/UserInput';
 import TaskLists from '../TaskLists/TaskLists';
 import UserBar from '../UserBar/UserBar';
-
+import UserInput from '../UserInput/UserInput';
+import TaskHead from '../TaskHead/TaskHead';
 
 //Component being start building here
 const Container = (props) => {
@@ -66,15 +66,18 @@ const Container = (props) => {
         username={userFullName}
         signoutUser={props.signoutUser}
       />
-      <UserInput 
-        userInputChange={handleuserInputChange}
-        taskformSubmitted={handleformSubmit}
-        inputValue={userinput}
+      <TaskHead 
+        uid = {userId}
       />
       <TaskLists 
         storedTasks={storedtasks} 
         currentTasks={tasks}
         username={userFullName}
+      />
+      <UserInput 
+        userInputChange={handleuserInputChange}
+        taskformSubmitted={handleformSubmit}
+        inputValue={userinput}
       />
     </div>
   )

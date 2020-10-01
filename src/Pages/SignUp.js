@@ -16,9 +16,10 @@ const SignUp = (props) => {
       .collection(id)
       .doc('credentials')
       .set({ 
-        username: userInput.userfirstName,
+        fullname: userInput.userfullname,
         useremail: userInput.userEmail,
         useruid: id,
+        taskhead: `Your List's Name`,
       })
     props.setUsername(userInput.userfirstName);
     props.signUserIn();
@@ -29,9 +30,7 @@ const SignUp = (props) => {
     e.preventDefault();
     
     if(
-      userInput.userEmail, 
-      userInput.userLastName,
-      userInput.userfirstName,
+      userInput.userfullname,
       userInput.userPassword
     ) { 
       firebase.auth()
@@ -58,11 +57,8 @@ const SignUp = (props) => {
     let targetName = event.target.name;
     let target = event.target.value;
     switch(targetName) { 
-      case 'username': 
-        setuserInput({...userInput, userfirstName: target });
-        break;
-      case 'userlastname': 
-        setuserInput({...userInput, userLastName: target });
+      case 'userfullname': 
+        setuserInput({...userInput, userfullname: target });
         break;
       case 'useremail': 
         setuserInput({...userInput, userEmail: target });
@@ -73,8 +69,7 @@ const SignUp = (props) => {
   } 
 
   let [userInput, setuserInput] = useState({
-    userfirstName: '',
-    userLastName: '',
+    userfullname: '',
     userEmail: '',
     userPassword: ''
   });
@@ -88,20 +83,14 @@ const SignUp = (props) => {
           <input 
             onChange={userDetailsUpdated}
             type="text" 
-            placeholder='Your First Name'
-            name='username'
-          />
-          <input 
-            onChange={userDetailsUpdated}
-            type="text" 
-            placeholder='Your Last Name'
-            name='userlastname'
-          />
-          <input 
-            onChange={userDetailsUpdated}
-            type="text" 
             placeholder='Your Email'
             name='useremail'
+          />
+          <input 
+            onChange={userDetailsUpdated}
+            type="text" 
+            placeholder='Your Full Name'
+            name='userfullname'
           />
           <input 
             onChange={userDetailsUpdated}

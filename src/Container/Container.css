@@ -1,1 +1,5 @@
-/* No CSS *//*# sourceMappingURL=Container.css.map */
+* {
+  display: none;
+  background-color: red;
+}
+/*# sourceMappingURL=Container.css.map */

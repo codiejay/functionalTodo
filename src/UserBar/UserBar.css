@@ -1,8 +1,8 @@
 .userBar {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 70% 25%;
-      grid-template-columns: 70% 25%;
+  -ms-grid-columns: 70% 30%;
+      grid-template-columns: 70% 30%;
   background-color: white;
   width: 70%;
   margin: 0 auto 3em auto;
@@ -13,15 +13,20 @@
   font-weight: bolder;
   text-transform: uppercase;
   text-align: left;
+  background-color: black;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px 19px;
+  border-radius: 200px;
+  color: white;
 }
 
 .userBar .userSign {
-  width: 100%;
-  height: 40px;
+  height: 100%;
   margin-top: 4%;
-  margin-left: 2em;
   position: relative;
-  text-align: right;
+  text-align: center;
 }
 
 .userBar .userSign button {

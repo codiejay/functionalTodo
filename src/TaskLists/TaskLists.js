@@ -84,7 +84,6 @@ const TaskLists = (props) => {
 
   return (
     <div id='taskList'>
-      <h1>TODAY'S TASKS</h1>
       {
         props.storedTasks.map((item, key) => {
           return ( 

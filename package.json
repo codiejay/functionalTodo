@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^7.2.1",
     "dotenv": "^8.2.0",
     "firebase": "^7.14.5",
+    "g": "^2.0.1",
+    "netlify-cli": "^2.62.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -18,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "netlify": "netlify"
   },
   "eslintConfig": {
     "extends": "react-app"

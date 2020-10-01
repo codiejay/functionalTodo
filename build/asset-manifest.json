@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.9b9be9d7.chunk.css",
-    "main.js": "/static/js/main.896ddf7f.chunk.js",
-    "main.js.map": "/static/js/main.896ddf7f.chunk.js.map",
+    "main.css": "/static/css/main.940b2503.chunk.css",
+    "main.js": "/static/js/main.70db59fd.chunk.js",
+    "main.js.map": "/static/js/main.70db59fd.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f9bd1330.js",
     "runtime-main.js.map": "/static/js/runtime-main.f9bd1330.js.map",
     "static/js/2.c50314ca.chunk.js": "/static/js/2.c50314ca.chunk.js",
     "static/js/2.c50314ca.chunk.js.map": "/static/js/2.c50314ca.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.1cda0da2d696250eb99608df62420e74.js": "/precache-manifest.1cda0da2d696250eb99608df62420e74.js",
+    "precache-manifest.e8f8b0c025bdbacdea3201af319081f0.js": "/precache-manifest.e8f8b0c025bdbacdea3201af319081f0.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.9b9be9d7.chunk.css.map": "/static/css/main.9b9be9d7.chunk.css.map",
+    "static/css/main.940b2503.chunk.css.map": "/static/css/main.940b2503.chunk.css.map",
     "static/js/2.c50314ca.chunk.js.LICENSE.txt": "/static/js/2.c50314ca.chunk.js.LICENSE.txt",
     "static/media/IndividualTask.css": "/static/media/undoIcon.77b7e61b.svg",
     "static/media/SignUp.scss": "/static/media/colorgoInIcon.5f127eff.svg",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.f9bd1330.js",
     "static/js/2.c50314ca.chunk.js",
-    "static/css/main.9b9be9d7.chunk.css",
-    "static/js/main.896ddf7f.chunk.js"
+    "static/css/main.940b2503.chunk.css",
+    "static/js/main.70db59fd.chunk.js"
   ]
 }

@@ -39,7 +39,7 @@ const App = () => {
       .doc('credentials')
       .get()
       .then(d => {
-        setuserfirstname(userfirstname = d.data().username)
+        setuserfirstname(userfirstname = d.data().fullname[0])
       });
     }
   });

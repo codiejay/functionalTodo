@@ -3,7 +3,7 @@
   padding: 1em 2em;
   border: 1px solid #b1b1b1;
   border-radius: 6px;
-  width: 80%;
+  width: 70%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 80% 5% 15%;
@@ -51,10 +51,6 @@
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-  -webkit-transition: all 1s;
-  transition: all 1s;
   margin-left: 1em;
 }
 
@@ -67,8 +63,6 @@
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
   -webkit-transition: all 1s;
   transition: all 1s;
   margin-left: 1em;
@@ -78,7 +72,7 @@
 #individualTask {
   padding: 1em 2em;
   border-radius: 6px;
-  width: 80%;
+  width: 70%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 80% 5% 15%;
@@ -121,21 +115,18 @@
   cursor: pointer;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+  width: 19px;
 }
 
 #individualTask #regularDoneBttn {
   display: inline-block;
-  width: 50%;
+  width: 80px;
   height: 20px;
   background: url("../Assets/check.svg");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
-  -webkit-transform: scale(1.4);
-          transform: scale(1.4);
-  -webkit-transition: all 1s;
-  transition: all 1s;
   margin-left: 1em;
 }
 
@@ -148,12 +139,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-  -webkit-transition: all 1s;
-  transition: all 1s;
   margin-left: 1em;
-  scale: 1.3;
   opacity: 1;
 }
 

@@ -3,19 +3,18 @@
 }
 
 #userInput {
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
 }
 
 #userInput input {
   font-size: 1.3em;
-  padding: 0.5em 2em 0.5em 0.81em;
   display: block;
   border: none;
   border-bottom: 1px solid #B9B9B9;
   color: #B9B9B9;
-  width: 90%;
+  width: 75%;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   outline: 1px solid  transparent;
@@ -23,11 +22,7 @@
 
 #userInput input:focus {
   outline: 1px solid  transparent;
-  -webkit-transform: scale(1);
-          transform: scale(1);
   color: black;
-  font-weight: bold;
-  font-size: 1.6em;
 }
 
 #userInput button {

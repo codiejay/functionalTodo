@@ -1,0 +1,14 @@
+#taskhead {
+  width: 70%;
+  text-align: left;
+  margin: 0 auto;
+}
+
+#taskhead input {
+  width: 100%;
+  border: none;
+  outline-color: transparent;
+  font-size: 2em;
+  font-weight: 900;
+}
+/*# sourceMappingURL=TaskHead.css.map */
