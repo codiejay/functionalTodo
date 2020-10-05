@@ -2,22 +2,36 @@ import React, { useState } from 'react';
 import './IndividualTask.css';
 
 const IndividualTask = (props) => { 
+
+  const taskEdited = (e) => { 
+    setTask(`${e.target.value}`);
+  }
+
+  let [task, setTask] = useState(props.taskName);
   return (
       <div 
-        id={props.containerId}
+        id='individualTask'
         data-type= {props.uniqueID}
+        style={{ 
+          opacity: `${(props.blurtask) ? 0.3 : 1}`
+        }}
       >
-        <li >{props.taskName}</li>
-        <span 
-          id="delBttn"
-          onClick={props.delBttnClicked}
-        >
-        </span>
-        <span 
-          id={props.checkBttnId}
-          onClick={props.checkBttnClicked}
-        >
-        </span>
+        <div>
+          <span
+            id='checked'
+            onClick={props.unCheckBttnClicked}
+          >
+          </span>
+          <span
+            id='unchecked'
+            onClick={props.checkBttnClicked}            
+          >
+          </span>
+        </div>
+        <input
+          onChange={taskEdited}
+          value={task}
+        />
       </div>
   )
 };

@@ -40,17 +40,17 @@ const TaskLists = (props) => {
 
   const handlecheckBttnClicked = (e) => { 
     let parentNode = e.target.parentNode;
-    if(e.target.id === 'regularDoneBttn') { 
-      e.target.setAttribute('id', 'undoBttn');
-      parentNode.setAttribute('id', 'individualTaskBlur')
+    if(e.target.id === 'unchecked') { 
+      e.target.parentNode.parentNode.setAttribute('style', 'opacity: 0.4');
+      console.log(e.target.parentNode.parentNode)
       firebase.firestore()
       .collection(user.uid)
-      .where('uniqueId', '==', parseInt(e.target.parentNode.dataset.type))
+      .where('uniqueId', '==', parseInt(e.target.parentNode.parentNode.dataset.type))
       .get()
       .then(d => { 
         let docId = ' '
         d.forEach(i => { 
-          docId = i.id
+          docId = i.id;
         })
         firebase.firestore()
         .collection(user.uid)
@@ -60,17 +60,21 @@ const TaskLists = (props) => {
         })
       })
     }
-    else { 
-      e.target.setAttribute('id', 'regularDoneBttn');
-      parentNode.setAttribute('id', 'individualTask')
+  };
+
+  const handleUncheckBttnClicked = (e) => { 
+    let parentNode = e.target.parentNode;
+    if(e.target.id === 'checked') { 
+      e.target.parentNode.parentNode.setAttribute('style', 'opacity: 1');
+      console.log(e.target.parentNode.parentNode)
       firebase.firestore()
       .collection(user.uid)
-      .where('uniqueId', '==', parseInt(e.target.parentNode.dataset.type))
+      .where('uniqueId', '==', parseInt(e.target.parentNode.parentNode.dataset.type))
       .get()
       .then(d => { 
         let docId = ' '
         d.forEach(i => { 
-          docId = i.id
+          docId = i.id;
         })
         firebase.firestore()
         .collection(user.uid)
@@ -81,20 +85,20 @@ const TaskLists = (props) => {
       })
     }
   };
-
+  
   return (
     <div id='taskList'>
       {
         props.storedTasks.map((item, key) => {
+          let me = item.done
           return ( 
             <IndividualTask 
               key={key}
+              blurtask={me}
               uniqueID={item.uniqueId}
               taskName={item.taskname} 
-              delBttnClicked={handledelBttnClicked}
               checkBttnClicked={handlecheckBttnClicked}
-              checkBttnId={(item.done ? 'undoBttn' : 'regularDoneBttn' )}
-              containerId={(item.done) ? 'individualTaskBlur' : 'individualTask'}
+              unCheckBttnClicked={handleUncheckBttnClicked}
             />
           )
         })
@@ -106,8 +110,8 @@ const TaskLists = (props) => {
               key={key}
               uniqueID={item.uniqueId}
               taskName={item.userinput} 
-              delBttnClicked={handledelBttnClicked}
               checkBttnClicked={handlecheckBttnClicked}
+              unCheckBttnClicked={handleUncheckBttnClicked}
               checkBttnId={'regularDoneBttn'}
               containerId={'individualTask'}
             />

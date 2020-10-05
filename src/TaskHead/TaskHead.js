@@ -13,7 +13,6 @@ const TaskHead = (props) => {
           .doc('credentials')
           .get()
           .then(data => { 
-            console.log(data.data());
             setTaskHead(data.data().taskhead)
           });
         }
@@ -36,7 +35,7 @@ const TaskHead = (props) => {
             type='text'
             value={taskhead}
             onChange={taskHeadChange}
-            autofocus
+            autoFocus={true}
           />
       </div>
   )

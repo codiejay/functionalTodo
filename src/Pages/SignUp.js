@@ -30,7 +30,7 @@ const SignUp = (props) => {
     e.preventDefault();
     
     if(
-      userInput.userfullname,
+      userInput.userfullname &&
       userInput.userPassword
     ) { 
       firebase.auth()
